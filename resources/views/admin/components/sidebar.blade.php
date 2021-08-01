@@ -23,25 +23,41 @@
                             </div>
                         </a>
                     </li>
-                    {{-- <li class="{{ set_active('admin.renungan-list') }}">
-                        <a href="javascript:void(0)">
-                            <div class="item-content">
-                                <div class="item-media">
-                                    <i class="ti-pencil-alt"></i>
+                    @foreach($menus as $key => $menu)
+                    <li class="open">
+                        @if ($menu->parent_id == 0)
+                            <a href="javascript:void(0)">
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <i class="{{$menu->icon}} fa-2x"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <span class="title"> {{ucfirst($menu->name)}} </span><i class="icon-arrow"></i>
+                                    </div>
                                 </div>
-                                <div class="item-inner">
-                                    <span class="title"> Input </span><i class="icon-arrow"></i>
-                                </div>
-                            </div>
-                        </a>
+                            </a>  
+                        @endif
                         <ul class="sub-menu">
-                            <li>
-                                <a href="{{ route('admin.input') }}">
-                                    <span class="title">Input Renungan</span>
-                                </a>
-                            </li>
+                            @if($menu->children->count() > 0)
+                                @foreach($menu->children as $k => $child)
+                                    <li>
+                                        <a href="{{url('admin.'.$child->url)}}">
+                                            <div class="item-content">
+                                                <div class="item-media" style="padding: 0px 5px 0px 0px !important">
+                                                    <i class="{{$child->icon}}"></i>
+                                                </div>
+                                                <div class="item-inner" style="padding: 5px 5px 0px 0px !important">
+                                                    <span class="title">{{$child->name}}</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                @endforeach
+                            @endif
                         </ul>
-                    </li> --}}
+                       
+                    </li>
+                    @endforeach
                     <li>
                         <a href="javascript:void(0)">
                             <div class="item-content">
