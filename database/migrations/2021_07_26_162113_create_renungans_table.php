@@ -15,6 +15,11 @@ class CreateRenungansTable extends Migration
     {
         Schema::create('renungans', function (Blueprint $table) {
             $table->id();
+            $table->integer('admin_id')->index();
+            $table->string('thema');
+            $table->string('verse');
+            $table->longText('content');
+            $table->longText('exp');
             $table->timestamps();
         });
     }

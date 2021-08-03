@@ -41,13 +41,13 @@
                             @if($menu->children->count() > 0)
                                 @foreach($menu->children as $k => $child)
                                     <li>
-                                        <a href="{{url('admin.'.$child->url)}}">
+                                        <a href="{{url('admin'.$child->url)}}">
                                             <div class="item-content">
                                                 <div class="item-media" style="padding: 0px 5px 0px 0px !important">
                                                     <i class="{{$child->icon}}"></i>
                                                 </div>
                                                 <div class="item-inner" style="padding: 5px 5px 0px 0px !important">
-                                                    <span class="title">{{$child->name}}</span>
+                                                    <span class="title">{{$child->label}}</span>
                                                 </div>
                                             </div>
                                         </a>
