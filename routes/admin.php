@@ -19,20 +19,24 @@ Route::group([
 );
 
 Route::group([
-    'as' => 'admin.',
+    'as' => 'admin.renungan.',
     'middleware' => 'adminauth'
     ], function (Router $router) {
         $controller = "RenunganController@";
-        $router->get('renungan/list',$controller.'index')->name('renungan_list');
+        $router->get('renungan/list',$controller.'index')->name('list');
     }
 );
 
 Route::group([
-    'as' => 'admin.',
+    'as' => 'admin.role.',
     'middleware' => 'adminauth'
     ], function (Router $router) {
         $controller = "RoleController@";
-        $router->get('role/list',$controller.'index')->name('role_list');
+        $router->get('role/list',$controller.'index')->name('list');
+        $router->get('role/form',$controller.'form')->name('form');
+        $router->post('role/save',$controller.'save')->name('save');
+        $router->get('role/{id}/module',$controller.'module')->name('module');
+        $router->post('role/module/save',$controller.'module_save')->name('module.save');
     }
 );
 

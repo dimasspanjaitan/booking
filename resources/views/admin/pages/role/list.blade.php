@@ -7,8 +7,8 @@
 
 @section('content')
 <!-- start: TITLE -->
-	<section id="page-title" class="padding-top-5 padding-bottom-5">
-		<div class="row">
+	<section id="page-title" class="padding-top-5 padding-left-1 padding-bottom-5">
+		<div class="row" style="padding-left:0px;">
 			<div class="col-sm-7">
 				<span class="mainDescription">LIST ROLE</span>
 			</div>
@@ -16,11 +16,11 @@
 	</section>
 <!-- end: TITLE -->
 <div class="panel">
-	<div class="container-fluid container-fullw bg-white">
+	<div class="bg-white">
 		<div class="row">
-			<div class="col-md-12 space20">
-				<a href="#">
-					<button class="btn btn-green add-row">
+			<div class="col-md-12 space10">
+				<a href="{{ route('admin.role.form') }}">
+					<button class="btn btn-sm btn-green add-row">
 						Add New <i class="fa fa-plus"></i>
 					</button>
 				</a>
@@ -28,22 +28,22 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<table class="table table-striped table-bordered table-hover table-full-width" id="role_table">
+				<table class="table table-condensed table-striped table-bordered table-hover table-full-width" id="role_table">
 					<thead>
-						<th>No.</th>
+						<th width="10px">No.</th>
 						<th>Nama</th>
 						<th>Is Admin</th>
-						<th>Action</th>
+						<th width="10px">Action</th>
 					</thead>
 					<tbody>
 						@foreach($roles as $key => $role)
 							<tr>
 								<td>{{ $key+1 }}</td>
-								<td><a href="#">{{ $role->name }}</a></td>
+								<td><a href="{{ route('admin.role.module', $role->id) }}">{{ $role->name }}</a></td>
 								<td>{{ $role->is_admin?'Admin':'Bukan Admin' }}</td>
 								<td class="center">
-									<button type="submit" class="btn btn-transparent btn-xs btn_delete" data-id="{{$role->id}}">
-										<i class="fa fa-trash fa-2x"></i>
+									<button type="submit" class="btn btn-transparent btn-sm btn_delete" data-id="{{$role->id}}">
+										<i class="fa fa-trash"></i>
 									</button>
 								</td>
 							</tr>
