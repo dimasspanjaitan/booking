@@ -6,13 +6,13 @@
 ================================================== -->
 <div class="container">
     <div class="row">
-        {{-- @if(empty($renungan_latests)) --}}
+        @if(empty($renungan_latest))
             <div class="col-md-8 col-md-offset-2 col-xs-12">
                 <div class="mainheading">
                     <h1 class="posttitle">Tidak ada Renungan untuk Hari ini</h1>
                 </div>
             </div>
-        {{-- @else --}}
+        @else
 
             @include('components.sidebar')
 
@@ -36,7 +36,7 @@
                     </div>
                     <!-- End Top Menta -->
 
-                    <h1 class="posttitle">{{ $renungan_latests->thema }}</h1>
+                    <h1 class="posttitle">{{ $renungan_latest->thema }}</h1>
 
                     <div class="fb-like" data-href="#" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true"></div>
 
@@ -44,15 +44,15 @@
 
                 <!-- Begin Post Content -->
                 <div class="article-post">
-                    <h3 class="posttitle"></h3>
+                    <h3 class="posttitle">{{ $renungan_latest->verse }}</h3>
                     <blockquote>
-                        {{-- {{ $renungan_latests->nats_content }} --}}
+                        {{ $renungan_latest->cotent }}
                     </blockquote>
                     <p>
-                        {{-- <a href="{{ $renungan_latests->link }}">{{ $renungan_latests->link }}</a> --}}
+                        {{-- <a href="{{ $renungan_latest->link }}">{{ $renungan_latest->link }}</a> --}}
                     </p>
                     <p>
-                        {{-- {!! $renungan_latests->content !!} --}}
+                        {!! $renungan_latest->exp !!}
                     </p>
                 </div>
                 <!-- End Post Content -->
@@ -67,13 +67,12 @@
                     </ul> --}}
                 </div>
                 <!-- End Tags -->
-                {{-- <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#{{$renungan_latests->slug}}" data-width="" data-numposts="5"></div> --}}
+                <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#{{$renungan_latest->slug}}" data-width="" data-numposts="5"></div>
 
             </div>
-        <!-- End Post -->
-
+            <!-- End Post -->
         @endif
-    </div>
+    </div>  
 </div>
 <!-- End Article
 ================================================== -->

@@ -12,7 +12,7 @@
                 </div>
                 <ul class="main-navigation-menu">
                     <li class="{{ set_active('admin.dashboard') }}">
-                        <a href="dashboard">
+                        <a href="{{ route('admin.dashboard') }}">
                             <div class="item-content">
                                 <div class="item-media">
                                     <i class="ti-home"></i>

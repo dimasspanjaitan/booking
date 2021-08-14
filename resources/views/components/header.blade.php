@@ -14,8 +14,11 @@
                 <!-- Begin Menu -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                    <a class="nav-link" href="{{ url('home') }}">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ url('home') }}">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('renungan') }}">Renungan</a>
+                        </li>
                     <li class="nav-item">
                     <a class="nav-link" href="{{ url('tentang') }}">Tentang</a>
                     </li>

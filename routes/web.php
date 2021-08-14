@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('home', 'App\Http\Controllers\HomeController@index')->name('home');
+Route::get('renungan', 'App\Http\Controllers\RenunganController@index')->name('renungan');

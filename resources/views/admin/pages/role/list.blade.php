@@ -7,7 +7,7 @@
 
 @section('content')
 <!-- start: TITLE -->
-	<section id="page-title" class="padding-top-5 padding-left-1 padding-bottom-5">
+	<section id="page-title" class="padding-top-5 padding-bottom-5">
 		<div class="row" style="padding-left:0px;">
 			<div class="col-sm-7">
 				<span class="mainDescription">LIST ROLE</span>
@@ -18,7 +18,7 @@
 <div class="panel">
 	<div class="bg-white">
 		<div class="row">
-			<div class="col-md-12 space10">
+			<div class="col-md-12 space10 padding-top-10">
 				<a href="{{ route('admin.role.form') }}">
 					<button class="btn btn-sm btn-green add-row">
 						Add New <i class="fa fa-plus"></i>

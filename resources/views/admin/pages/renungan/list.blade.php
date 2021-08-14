@@ -8,27 +8,35 @@
 @section('content')
 <!-- start: DASHBOARD TITLE -->
 	<section id="page-title" class="padding-top-5 padding-bottom-5">
-		<div class="row">
+		<div class="row" style="padding-left:0px;">
 			<div class="col-sm-7">
 				<span class="mainDescription">DASHBOARD</span>
 			</div>
 		</div>
 	</section>
 <!-- end: DASHBOARD TITLE -->
-<div class="panel" style="margin-top:15px">
+
+<div class="panel">
 	<!-- start: DYNAMIC TABLE -->
-	<div class="container-fluid container-fullw bg-white">
+	<div class="bg-white">
+		<div class="row">
+			<div class="col-md-12 space10 padding-top-10">
+				<a href="{{ route('admin.role.form') }}">
+					<button class="btn btn-sm btn-green add-row">
+						Add New <i class="fa fa-plus"></i>
+					</button>
+				</a>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<h5 class="over-title margin-bottom-15"><span class="text-bold">List Renungan </span>yang telah di-Upload</h5>
+				{{-- <h5 class="over-title margin-bottom-15"><span class="text-bold">List Renungan </span>yang telah di-Upload</h5> --}}
 				<table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
 					<thead>
 						<th>Tema</th>
 						<th>Ayat Alkitab</th>
 						<th>Isi Ayat Alkitab</th>
 						<th>Konten Renungan</th>
-						<th>Link</th>
-						<th>View</th>
 						<th>Upload By</th>
 						<th>Tanggal Upload</th>
 						<th>Hapus</th>
@@ -37,11 +45,9 @@
 						@foreach($renungans as $key => $renungan)
 							<tr>
 								<td>{{ $renungan->thema }}</td>
-								<td>{{ $renungan->nats }}</td>
-								<td>{!! substr($renungan->nats_content, 0, 50) !!}</td>
+								<td>{{ $renungan->verse }}</td>
 								<td>{!! substr($renungan->content, 0, 50) !!}</td>
-								<td>{{ $renungan->link }}</td>
-								<td>{{ $renungan->view }}</td>
+								<td>{!! substr($renungan->exp, 0, 50) !!}</td>
 								<td>{{ $renungan->admin->name }}</td>
 								<td>{{ $renungan->created_at->format('d M Y - H:i:s') }}</td>
 								<td class="center">

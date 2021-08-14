@@ -20,6 +20,7 @@ class CreateRenungansTable extends Migration
             $table->string('verse');
             $table->longText('content');
             $table->longText('exp');
+            $table->string('slug');
             $table->timestamps();
         });
     }
