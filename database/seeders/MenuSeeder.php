@@ -18,6 +18,15 @@ class MenuSeeder extends Seeder
 
         Menu::insert([
             [
+                'id' => 1,
+                'parent_id' => 0,
+                'name' => 'master',
+                'label' => 'MASTER',
+                'url' => '/dashboard',
+                'icon' => 'ti-home'
+            ],
+            [
+                'id' => 2,
                 'parent_id' => 0,
                 'name' => 'renungan',
                 'label' => 'RENUNGAN',
@@ -25,13 +34,7 @@ class MenuSeeder extends Seeder
                 'icon' => 'ti-book'
             ],
             [
-                'parent_id' => 1,
-                'name' => 'renungan_list',
-                'label' => 'List',
-                'url' => '/renungan/list',
-                'icon' => 'ti-list'
-            ],
-            [
+                'id' => 3,
                 'parent_id' => 0,
                 'name' => 'role',
                 'label' => 'ROLE',
@@ -39,9 +42,18 @@ class MenuSeeder extends Seeder
                 'icon' => 'ti-eye'
             ],
             [
-                'parent_id' => 3,
-                'name' => 'role_list',
+                'id' => 21,
+                'parent_id' => 2,
+                'name' => 'renungan_list',
                 'label' => 'List',
+                'url' => '/renungan/list',
+                'icon' => 'ti-list'
+            ],
+            [
+                'id' => 11,
+                'parent_id' => 1,
+                'name' => 'admin',
+                'label' => 'Admin',
                 'url' => '/role/list',
                 'icon' => 'ti-list'
             ]
