@@ -19,3 +19,12 @@ Route::get('/', function () {
 
 Route::get('home', 'App\Http\Controllers\HomeController@index')->name('home');
 Route::get('renungan', 'App\Http\Controllers\RenunganController@index')->name('renungan');
+
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('admin/login', 'App\Http\Controllers\Auth\AdminAuthController@getLogin')->name('admin.login');
+Route::post('admin/login', 'App\Http\Controllers\Auth\AdminAuthController@postLogin')->name('adminLoginPost');
+Route::post('admin/logout', 'App\Http\Controllers\Auth\AdminAuthController@logout')->name('adminLogout');
