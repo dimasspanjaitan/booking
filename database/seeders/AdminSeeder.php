@@ -20,8 +20,7 @@ class AdminSeeder extends Seeder
             'role_id' => 1,
             'name' => 'admin',
             'email' => 'admin@gbipelita.com',
-            'password' => 'admin123',
-            'remember_token' => 'auto_generated',
+            'password' => bcrypt('admin123'),
             'is_active' => 1
         ]);
     }
