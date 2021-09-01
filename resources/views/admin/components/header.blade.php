@@ -26,7 +26,7 @@
             <li class="dropdown current-user">
                 <a href class="dropdown-toggle" data-toggle="dropdown">
                     <img src="{{asset('admin-assets/images/default-user.png')}}" alt="Peter"> <span class="username">
-                        {{-- {{ Auth::guard('admin')->user()->name }} --}}
+                        {{ Auth::guard('admin')->user()->name }}
                         <i class="ti-angle-down"></i></i></span>
                 </a>
                 <ul class="dropdown-menu dropdown-dark">

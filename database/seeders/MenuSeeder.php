@@ -22,7 +22,7 @@ class MenuSeeder extends Seeder
                 'parent_id' => 0,
                 'name' => 'master',
                 'label' => 'MASTER',
-                'url' => '/dashboard',
+                'url' => '',
                 'icon' => 'ti-home'
             ],
             [
@@ -30,7 +30,7 @@ class MenuSeeder extends Seeder
                 'parent_id' => 0,
                 'name' => 'renungan',
                 'label' => 'RENUNGAN',
-                'url' => '/renungan',
+                'url' => 'renungan',
                 'icon' => 'ti-book'
             ],
             [
@@ -38,32 +38,32 @@ class MenuSeeder extends Seeder
                 'parent_id' => 1,
                 'name' => 'user',
                 'label' => 'User',
-                'url' => '/user/list',
-                'icon' => 'ti-user'
+                'url' => 'user_list',
+                'icon' => 'fa fa-user'
             ],
             [
                 'id' => 12,
                 'parent_id' => 1,
                 'name' => 'role',
                 'label' => 'Role',
-                'url' => '/role/list',
-                'icon' => 'ti-cog'
+                'url' => 'role_list',
+                'icon' => 'fa fa-gear'
             ],
             [
                 'id' => 13,
                 'parent_id' => 1,
                 'name' => 'admin',
                 'label' => 'Admin',
-                'url' => '/admin/list',
-                'icon' => 'ti-key'
+                'url' => 'admin_list',
+                'icon' => 'fa fa-key'
             ],
             [
                 'id' => 21,
                 'parent_id' => 2,
                 'name' => 'renungan_list',
                 'label' => 'List',
-                'url' => '/renungan/list',
-                'icon' => 'ti-list'
+                'url' => 'renungan_list',
+                'icon' => 'fa fa-list'
             ]
         ]);
     }

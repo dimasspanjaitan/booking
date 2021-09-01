@@ -11,7 +11,15 @@ class BaseController extends Controller
 {
     public function __construct()
     {
-        $menus = Menu::getUserMenu();
+        $path = explode('\\',get_class($this));
+        $controller = $path[count($path)-1];
+        // dd($controller  );
+        $page['title'] = preg_split('/(?=[A-Z])/',$controller)[1];
+        // $page['status'] = 'Module';
+        session()->forget('menus');
+
+
+        $menus = Menu::where('parent_id',0)->with('children')->get()->sortBy('parent_id');
 
         View::share('menus',$menus);
     }
