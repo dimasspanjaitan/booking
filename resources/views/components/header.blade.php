@@ -16,9 +16,12 @@
                     <li class="nav-item">
                     <a class="nav-link" href="{{ url('home') }}">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('renungan') }}">Renungan</a>
-                        </li>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('event') }}">Event</a>
+                    </li>
                     <li class="nav-item">
                     <a class="nav-link" href="{{ url('tentang') }}">Tentang</a>
                     </li>

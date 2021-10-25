@@ -40,6 +40,17 @@ Route::group([
     }
 );
 
+Route::group([
+    'as' => 'admin.seat.',
+    'middleware' => 'adminauth'
+    ], function (Router $router) {
+        $controller = "SeatController@";
+        $router->get('seat/list',$controller.'index')->name('list');
+        $router->get('seat/form',$controller.'form')->name('form');
+        $router->post('seat/save',$controller.'save')->name('save');
+    }
+);
+
 //API
 
 Route::group([

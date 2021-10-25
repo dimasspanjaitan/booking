@@ -30,16 +30,7 @@
 	@include('components.header')
 
 	<div class="container">
-		<div class="mainheading">
-			<h1 class="sitetitle">GBI Pelita Medan</h1>
-			<p class="lead">Bertumbuh dalam Pemuridan</p>
-		</div>
-
-
 		@yield('content')
-
-
-
 	</div> 
 	<div style="padding-bottom: 120px"></div>
 	@include('components.footer')
