@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator;
+use \App\Http\Requests\EventRequest;
 use App\Models\{
     Event,
     Seat,
@@ -61,25 +61,21 @@ class EventController extends Controller
         return view('pages.event.detail', compact('event', 'seat_grouped'));
     }
 
-    public function detail_save(Request $request){
+    public function detail_save(EventRequest $request){
         $data = $request->all();
-        // dd($data);
-
-        $validator = $request->validate([
-            'name' => 'required',
-            'phone' => 'required|numeric|min:10'
-        ],[
-            'name.required' => 'Nama tidak boleh KOSONG!',
-            'phone.required' => 'Mohon masukkan No WA anda!'
-        ]);
+        $event = Event::where('slug', $data['slug'])->first();
+        if (empty($event)) {
+            return redirect()->back()->with('error', 'Maaf, EVENT tidak tersedia!');
+        }
 
         $booking = new BS();
         $booking->seat_id = $data['seat_id'];
         $booking->name = $data['name'];
         $booking->phone = $data['phone'];
+        $booking->event_id = $event->id;
         
         if ($booking->save()) {
-            return redirect()->with('success', 'BOOKING BERHASIL! Tempat duduk Anda akan kami siapkan. Terima Kasih');
+            return redirect()->back()->with('success', 'BOOKING BERHASIL! Tempat duduk Anda akan kami siapkan. Terima Kasih');
         }else{
             return redirect()->back();
         }

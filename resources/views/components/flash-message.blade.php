@@ -47,7 +47,9 @@
 <div class="col-lg-6 col-md-12 m-auto">
     <div class="alert fade alert-danger notif">
         <button type="button" class="close" data-dismiss="alert">x</button>
-        ERROR!!! Tolong periksa kembali data anda!
+        @foreach($errors->all() as $error)
+            <div>{{ $error }}</div>
+        @endforeach
     </div>
 </div>
 @endif

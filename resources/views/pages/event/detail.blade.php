@@ -32,6 +32,7 @@
                 <form action="{{ route('event.detail.save') }}" method="POST">
                     @csrf
                     <input type="hidden" name="seat_id" id="seat_id">
+                    <input type="hidden" name="slug" value="{{request('slug')}}">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -39,7 +40,9 @@
                         </button>
                     </div>             
                     <div class="modal-body">
-                        <img id="modal-image" src="" alt="">
+                        <div class="">
+                            <img class="img img-fluid" id="modal-image" src="" alt="" >
+                        </div>
                         <div class="form-group">
                             <label for="name" class="col-form-label">Nama</label>
                             <input type="text" class="form-control" name="name" id="name" placeholder="Masukkan Nama Anda">
@@ -51,7 +54,7 @@
                         </div>
                         <div class="form-group">
                             <label for="phone" class="col-form-label">Nomor Whatsapp</label>
-                            <input type="number" class="form-control" name="phone" id="phone" placeholder="08XXXXXXXXXX">
+                            <input type="number" class="form-control" minlength="10" maxlength="13" name="phone" id="phone" placeholder="08XXXXXXXXXX">
                             @if ($errors->has('phone'))
                                 <div class="form-group text-warning">
                                     {{ $errors->first('phone') }} <label class="symbol required"></label>
@@ -74,7 +77,7 @@
             const img_url =  '{{config('app.asset_url')}}' + data.image
 
             $('#modal-image').attr('src', img_url );
-            $('#seat_id').attr('value', data.id);
+            $('#seat_id').val(data.id);
         })
     </script>
 @endpush
