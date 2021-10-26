@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(RenunganSeeder::class);
         // $this->call(ModuleSeeder::class);
         // $this->call(RoleModuleSeeder::class);
-        $this->call(SeatGrupSeeder::class);
+        // $this->call(SeatGrupSeeder::class);
+        $this->call(SeatSeeder::class);
     }
 }

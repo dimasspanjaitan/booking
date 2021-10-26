@@ -63,20 +63,26 @@ class EventController extends Controller
 
     public function detail_save(Request $request){
         $data = $request->all();
-        dd($data);
+        // dd($data);
 
         $validator = $request->validate([
             'name' => 'required',
-            'phone' => 'required|number|min:10'
+            'phone' => 'required|numeric|min:10'
         ],[
             'name.required' => 'Nama tidak boleh KOSONG!',
-            'phone.required' => 'Nomor WA tidak boleh KOSONG!'
+            'phone.required' => 'Mohon masukkan No WA anda!'
         ]);
 
         $booking = new BS();
+        $booking->seat_id = $data['seat_id'];
         $booking->name = $data['name'];
         $booking->phone = $data['phone'];
         
-        return back()->with('success', 'Berhasil Memesan Tempat Duduk');
+        if ($booking->save()) {
+            return redirect()->with('success', 'BOOKING BERHASIL! Tempat duduk Anda akan kami siapkan. Terima Kasih');
+        }else{
+            return redirect()->back();
+        }
+        
     }
 }

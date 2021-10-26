@@ -16,8 +16,8 @@
             <div class="card">
                 <div class="card-block">
                     @foreach ($sg as $item)
-                        <div class="">
-                            <button class="btn-seat-modal {{$item->has_booking ? 'btn btn-danger': 'btn btn-success'}} btn-lg" {{$item->has_booking ? 'disabled': ''}} style="cursor: pointer" data-toggle="modal" data-seat="{{$item}}" data-target="#seatModal">{{ $item->code }}</button>
+                        <div class="seat">
+                            <button class="btn-seat-modal {{$item->has_booking ? 'btn btn-danger': 'btn btn-success'}}" {{$item->has_booking ? 'disabled': ''}} style="cursor: pointer" data-toggle="modal" data-seat="{{$item}}" data-target="#seatModal">{{ $item->code }}</button>
                         </div>
                     @endforeach
                 </div>
@@ -31,7 +31,7 @@
             <div class="modal-content">
                 <form action="{{ route('event.detail.save') }}" method="POST">
                     @csrf
-                    <input type="hidden" name="seat_id" value="{{ $item->id }}">
+                    <input type="hidden" name="seat_id" id="seat_id">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -42,16 +42,25 @@
                         <img id="modal-image" src="" alt="">
                         <div class="form-group">
                             <label for="name" class="col-form-label">Nama</label>
-                            <input type="text" class="form-control" name="name" id="name">
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Masukkan Nama Anda">
+                            @if ($errors->has('name'))
+                                <div class="form-group text-warning">
+                                    {{ $errors->first('name') }} <label class="symbol required"></label>
+                                </div>
+                            @endif
                         </div>
                         <div class="form-group">
                             <label for="phone" class="col-form-label">Nomor Whatsapp</label>
-                            <input type="text" class="form-control" name="phone" id="phone">
+                            <input type="number" class="form-control" name="phone" id="phone" placeholder="08XXXXXXXXXX">
+                            @if ($errors->has('phone'))
+                                <div class="form-group text-warning">
+                                    {{ $errors->first('phone') }} <label class="symbol required"></label>
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                        <button type="submit" class="btn btn-primary">Pesan</button>
+                        <button type="submit" class="btn btn-success">Booking</button>
                     </div>
                 </form>
             </div>
@@ -65,6 +74,7 @@
             const img_url =  '{{config('app.asset_url')}}' + data.image
 
             $('#modal-image').attr('src', img_url );
+            $('#seat_id').attr('value', data.id);
         })
     </script>
 @endpush

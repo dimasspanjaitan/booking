@@ -28,6 +28,7 @@
 </head>
 <body>
 	@include('components.header')
+	@include('components.flash-message')
 
 	<div class="container">
 		@yield('content')

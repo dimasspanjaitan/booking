@@ -28,6 +28,6 @@ class SeatController extends Controller
 
         dd($seat_grouped);
 
-        return view('admin.pages.seat.list', compact('seats'));
+        return view('admin.pages.seat.list', compact('seat_groupee'));
     }
 }
