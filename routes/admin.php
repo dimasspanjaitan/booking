@@ -24,6 +24,8 @@ Route::group([
     ], function (Router $router) {
         $controller = "RenunganController@";
         $router->get('renungan/list',$controller.'index')->name('list');
+        $router->get('renungan/form',$controller.'form')->name('form');
+        $router->post('renungan/upload',$controller.'upload')->name('upload');
     }
 );
 
@@ -48,6 +50,16 @@ Route::group([
         $router->get('seat/list',$controller.'index')->name('list');
         $router->get('seat/form',$controller.'form')->name('form');
         $router->post('seat/save',$controller.'save')->name('save');
+    }
+);
+
+Route::group([
+    'as' => 'admin.event.',
+    'middleware' => 'adminauth'
+    ], function (Router $router){
+        $controller = "EventController@";
+        $router->get('event/booking',$controller.'booking')->name('booking');
+        $router->get('event/booking/feed',$controller.'feed')->name('booking.feed');
     }
 );
 

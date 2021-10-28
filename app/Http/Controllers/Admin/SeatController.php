@@ -26,8 +26,8 @@ class SeatController extends Controller
             $seat_grouped[$seat_groups->find($key)->name] = $st;
         }
 
-        dd($seat_grouped);
+        // dd($seat_grouped);
 
-        return view('admin.pages.seat.list', compact('seat_groupee'));
+        return view('admin.pages.seat.list', compact('seat_grouped'));
     }
 }

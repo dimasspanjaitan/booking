@@ -20,51 +20,84 @@ class MenuSeeder extends Seeder
             [
                 'id' => 1,
                 'parent_id' => 0,
-                'name' => 'master',
-                'label' => 'MASTER',
-                'url' => '',
+                'name' => 'dashboard',
+                'label' => 'DASHBOARD',
+                'url' => '/dashboard',
                 'icon' => 'ti-home'
             ],
             [
                 'id' => 2,
                 'parent_id' => 0,
+                'name' => 'master',
+                'label' => 'MASTER',
+                'url' => '',
+                'icon' => 'ti-server'
+            ],
+            [
+                'id' => 3,
+                'parent_id' => 0,
                 'name' => 'renungan',
                 'label' => 'RENUNGAN',
-                'url' => 'renungan',
+                'url' => '/renungan',
                 'icon' => 'ti-book'
             ],
             [
-                'id' => 11,
-                'parent_id' => 1,
-                'name' => 'user',
-                'label' => 'User',
-                'url' => 'user_list',
-                'icon' => 'fa fa-user'
-            ],
-            [
-                'id' => 12,
-                'parent_id' => 1,
-                'name' => 'role',
-                'label' => 'Role',
-                'url' => 'role_list',
-                'icon' => 'fa fa-gear'
-            ],
-            [
-                'id' => 13,
-                'parent_id' => 1,
-                'name' => 'admin',
-                'label' => 'Admin',
-                'url' => 'admin_list',
-                'icon' => 'fa fa-key'
+                'id' => 4,
+                'parent_id' => 0,
+                'name' => 'event',
+                'label' => 'EVENT',
+                'url' => '/event',
+                'icon' => 'ti-notepad'
             ],
             [
                 'id' => 21,
                 'parent_id' => 2,
+                'name' => 'user',
+                'label' => 'User',
+                'url' => '/user/list',
+                'icon' => 'fa fa-user'
+            ],
+            [
+                'id' => 22,
+                'parent_id' => 2,
+                'name' => 'role',
+                'label' => 'Role',
+                'url' => '/role/list',
+                'icon' => 'fa fa-gear'
+            ],
+            [
+                'id' => 23,
+                'parent_id' => 2,
+                'name' => 'admin',
+                'label' => 'Admin',
+                'url' => '/admin/list',
+                'icon' => 'fa fa-key'
+            ],
+            [
+                'id' => 24,
+                'parent_id' => 2,
+                'name' => 'seat',
+                'label' => 'Kursi',
+                'url' => '/seat/list',
+                'icon' => 'fa fa-list'
+            ],
+            [
+                'id' => 31,
+                'parent_id' => 3,
                 'name' => 'renungan_list',
                 'label' => 'List',
-                'url' => 'renungan_list',
+                'url' => '/renungan/list',
                 'icon' => 'fa fa-list'
+            ],
+            [
+                'id' => 41,
+                'parent_id' => 4,
+                'name' => 'booking_seat',
+                'label' => 'Booking Kursi',
+                'url' => '/event/booking',
+                'icon' => 'fa fa-bookmark'
             ]
+            
         ]);
     }
 }

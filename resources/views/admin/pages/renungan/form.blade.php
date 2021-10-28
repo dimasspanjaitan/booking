@@ -13,7 +13,7 @@
 		<div class="container-fluid container-fullw bg-white">
 			<div class="row">
 				<label class="container-fluid" style="color: red"> * wajib diisi </label>
-				<form action="{{ route('admin.upload') }}" method="post">
+				<form action="{{ route('admin.renungan.upload') }}" method="post">
 				@csrf
 
 					<div class="col-md-12">
@@ -21,6 +21,7 @@
 							<div class="col-lg-6 col-md-12">
 								<div class="panel panel-white">
 									<div class="panel-body">
+										<input type="hidden" name="admin_id" value="{{ Auth::guard('admin')->user()->id }}">
 										<div class="form-group">
 											<label for="thema"> Tema Renungan <label style="color: red"> * </label></label>
 											<input name="thema" type="text" class="form-control underline" id="thema" placeholder="Isi Tema Renungan" autocomplete="off">
@@ -31,20 +32,20 @@
 											@enderror
 										</div>
 										<div class="form-group">
-											<label for="nats"> Ayat Alkitab <label style="color: red"> * </label></label>
-											<input name="nats" type="text" class="form-control underline" id="nats" placeholder="Isi Ayat Alkitab sebagai Bahan Renungan" autocomplete="off">
-											@error('nats')
+											<label for="verse"> Ayat Alkitab <label style="color: red"> * </label></label>
+											<input name="verse" type="text" class="form-control underline" id="verse" placeholder="Isi Ayat Alkitab sebagai Bahan Renungan" autocomplete="off">
+											@error('verse')
 												<div class="form-group has-warning">
-													{{ $errors->first('nats') }} <label class="symbol required"></label>
+													{{ $errors->first('verse') }} <label class="symbol required"></label>
 												</div>
 											@enderror
 										</div>
 										<div class="form-group">
-											<label for="nats_content"> Isi Ayat Alkitab <label style="color: red"> * </label></label>
-											<textarea name="nats_content" id="nats_content" class="form-control autosize area-animated" placeholder="Isi Nats Alkitab berdasarkan Ayat Alkitab di Atas" {{ old('nats_content') }}></textarea>
-											@error('nats_content')
+											<label for="content"> Isi Ayat Alkitab <label style="color: red"> * </label></label>
+											<textarea name="content" id="content" class="form-control autosize area-animated" placeholder="Isi Nats Alkitab berdasarkan Ayat Alkitab di Atas" {{ old('content') }}></textarea>
+											@error('content')
 												<div class="form-group has-warning">
-													{{ $errors->first('nats_content') }} <label class="symbol required"></label>
+													{{ $errors->first('content') }} <label class="symbol required"></label>
 												</div>
 											@enderror
 										</div>
@@ -54,10 +55,10 @@
 							<div class="col-lg-6 col-md-12">
 								<div class="panel panel-white">
 									<div class="panel-body">
-										<div class="form-group">
+										{{-- <div class="form-group">
 											<label for="link"> Link </label>
 											<input name="link" id="link" type="text" class="form-control underline" placeholder="Isi jika Deperlukan" autocomplete="off">
-										</div>
+										</div> --}}
 										<div class="form-group">
 											<label for="slug"> Slug <label style="color: red"> * </label></label>
 											<input name="slug" id="slug" type="text" class="form-control underline" placeholder="Isi sesuai Tema Renungan! Contoh format : tema-renungan-hari-ini" autocomplete="off">
@@ -75,11 +76,11 @@
 									<div class="panel-body">
 										<!-- start: TEXT EDITOR -->
 										<div class="form-group">
-											<label for="content"> Konten Renungan <label style="color: red"> * </label></label>
-											<textarea name="content" id="content" class="ckeditor form-control" cols="10" rows="10" placeholder="Isi Konten Renungan di sini!"></textarea>
-											@error('content')
+											<label for="exp"> Konten Renungan <label style="color: red"> * </label></label>
+											<textarea name="exp" id="exp" class="ckeditor form-control" cols="10" rows="10" placeholder="Isi Konten Renungan di sini!"></textarea>
+											@error('exp')
 												<div class="form-group has-warning">
-													{{ $errors->first('content') }} <label class="symbol required"></label>
+													{{ $errors->first('exp') }} <label class="symbol required"></label>
 												</div>
 											@enderror
 										</div>

@@ -21,7 +21,7 @@
 	<div class="bg-white">
 		<div class="row">
 			<div class="col-md-12 space10 padding-top-10">
-				<a href="{{ route('admin.role.form') }}">
+				<a href="{{ route('admin.renungan.form') }}">
 					<button class="btn btn-sm btn-green add-row">
 						Add New <i class="fa fa-plus"></i>
 					</button>

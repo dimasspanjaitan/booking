@@ -16,8 +16,15 @@
             <div class="card">
                 <div class="card-block">
                     @foreach ($sg as $item)
-                        <div class="seat">
-                            <button class="btn-seat-modal {{$item->has_booking ? 'btn btn-danger': 'btn btn-success'}}" {{$item->has_booking ? 'disabled': ''}} style="cursor: pointer" data-toggle="modal" data-seat="{{$item}}" data-target="#seatModal">{{ $item->code }}</button>
+                        <div class="card-seat">
+                            <button class="btn-seat-modal {{$item->has_booking ? 'seat seat2': 'seat seat1'}}" {{$item->has_booking ? 'disabled': ''}} 
+                                style="cursor: pointer;" 
+                                data-toggle="modal" 
+                                data-seat="{{$item}}" 
+                                data-content='<img class="img img-fluid" src="{{config('app.asset_url').$item->image}}">'
+                                data-target="#seatModal">
+                                    {{ $item->code }} 
+                            </button>
                         </div>
                     @endforeach
                 </div>
@@ -40,7 +47,7 @@
                         </button>
                     </div>             
                     <div class="modal-body">
-                        <div class="">
+                        <div class="img-modal">
                             <img class="img img-fluid" id="modal-image" src="" alt="" >
                         </div>
                         <div class="form-group">
@@ -71,7 +78,15 @@
     </div>
 @endsection
 @push('script')
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script>
+       $('[data-toggle="modal"]').popover({
+            html: true,
+            // animated: 'fade',
+            trigger : 'hover',
+            placement: 'top'
+        })
         $('.btn-seat-modal').click(function(){
             const data = $(this).data('seat');
             const img_url =  '{{config('app.asset_url')}}' + data.image

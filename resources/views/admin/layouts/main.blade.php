@@ -32,6 +32,7 @@
 		<link rel="stylesheet" href="{{asset('admin-assets/css/styles.css')}}">
 		<link rel="stylesheet" href="{{asset('admin-assets/css/plugins.css')}}">
 		<link rel="stylesheet" href="{{asset('admin-assets/css/themes/theme-1.css')}}" id="skin_color" />
+		<link href="{{asset('vendor/DataTables/css/DT_bootstrap.css')}}" rel="stylesheet" media="screen">
 		<!-- end: CUSTOM CSS -->
 		<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
 		@stack('css')
