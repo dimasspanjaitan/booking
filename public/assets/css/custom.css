@@ -38,6 +38,7 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 12px;
     margin: 4px 2px;
     transition-duration: 0.4s;

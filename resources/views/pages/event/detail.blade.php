@@ -23,7 +23,7 @@
                                 data-seat="{{$item}}" 
                                 data-content='<img class="img img-fluid" src="{{config('app.asset_url').$item->image}}">'
                                 data-target="#seatModal">
-                                    {{ $item->code }} 
+                                    <strong>{{ $item->code }}</strong> 
                             </button>
                         </div>
                     @endforeach
