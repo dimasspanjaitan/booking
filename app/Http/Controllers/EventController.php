@@ -8,9 +8,11 @@ use App\Models\{
     Event,
     Seat,
     SeatGrup,
-    BookingSeat as BS,
-    BookingSeat
+    BookingSeat as BS
 };
+use File;
+use Response;
+use PhpParser\NodeVisitor\FirstFindingVisitor;
 
 class EventController extends Controller
 {
@@ -64,6 +66,8 @@ class EventController extends Controller
     public function detail_save(EventRequest $request){
         $data = $request->all();
         $event = Event::where('slug', $data['slug'])->first();
+        $seat = Seat::where('id', $data['seat_id'])->first();
+
         if (empty($event)) {
             return redirect()->back()->with('error', 'Maaf, EVENT tidak tersedia!');
         }
@@ -73,12 +77,29 @@ class EventController extends Controller
         $booking->name = $data['name'];
         $booking->phone = $data['phone'];
         $booking->event_id = $event->id;
+        $booking->code = '/assets/img/booking-code/'.$seat->code.'.jpg';
         
         if ($booking->save()) {
-            return redirect()->back()->with('success', 'BOOKING BERHASIL! Tempat duduk Anda akan kami siapkan. Terima Kasih');
+            return redirect()->route('event.detail.open-image', $data['seat_id'])->with('success', 'BOOKING BERHASIL! Tempat duduk Anda akan kami siapkan. Terima Kasih');
         }else{
+            return redirect()->back()->with('error', 'Data yang anda masukkan tidak sesuai ketentuan');
+        }
+    }
+
+    public function openImage(Request $request){
+        if (empty($request->seat_id)) {
             return redirect()->back();
         }
+        $booking = BS::where('seat_id', $request->seat_id)->first();
+        // dd($booking->id);
+
+        return view('pages.event.open-image', compact('booking'));
+    }
+
+    public function download(Request $request){
+        $url = BS::where('id', $request->id)->first();
         
+        $filepath = public_path($url->code);
+        return Response::download($filepath);
     }
 }

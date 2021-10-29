@@ -21,7 +21,7 @@ class EventController extends BaseController
     }
 
     public function feed(){
-        $data = BS::with('seat')->orderBy('id', 'desc')->get();
+        $data = BS::with('seat')->orderBy('seat_id', 'asc')->get();
         // dd($data);
         return DataTables::of($data)
             ->addIndexColumn()

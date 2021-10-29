@@ -34,7 +34,7 @@
     background-color: #0f8513; /* Green */
     border: none;
     color: white;
-    padding: 8px 16px;
+    padding: 8px 12px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -86,4 +86,12 @@
 .img-modal{
     display: flex;
     justify-content: center;
+}
+
+.card-download {
+    display: flex;
+}
+
+.card-download .code {
+    margin: auto;
 }

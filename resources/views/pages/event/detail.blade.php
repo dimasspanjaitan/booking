@@ -50,6 +50,7 @@
                         <div class="img-modal">
                             <img class="img img-fluid" id="modal-image" src="" alt="" >
                         </div>
+                        <p style="color: #cc3300">Masukkan data diri anda, untuk kepentingan INFORMASI lebih lanjut.</p>
                         <div class="form-group">
                             <label for="name" class="col-form-label">Nama</label>
                             <input type="text" class="form-control" name="name" id="name" placeholder="Masukkan Nama Anda">
@@ -61,7 +62,7 @@
                         </div>
                         <div class="form-group">
                             <label for="phone" class="col-form-label">Nomor Whatsapp</label>
-                            <input type="number" class="form-control" minlength="10" maxlength="13" name="phone" id="phone" placeholder="08XXXXXXXXXX">
+                            <input type="number" class="form-control" minlength="10" maxlength="13" name="phone" id="phone" placeholder="Minimal 10 angka, format : 08XXXXXXXXXX">
                             @if ($errors->has('phone'))
                                 <div class="form-group text-warning">
                                     {{ $errors->first('phone') }} <label class="symbol required"></label>
