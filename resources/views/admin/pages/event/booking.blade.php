@@ -12,20 +12,32 @@
     <!-- end: TITLE -->
     <div class="container-fluid">
         <div class="table-responsive padding-top-10">
-            <table id="table" width="100%" class="table table-hover display nowrap table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Kode Bangku</th>
-                        <th>Nama Event</th>
-                        <th>Nama</th>
-                        <th>No WA</th>
-                        <th>Tanggal</th>
-                        <th width="10px">Action</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+            <form action="{{ route('admin.event.booking') }}" method="GET">
+                <table id="table" width="100%" class="table table-hover display nowrap table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Kode Bangku</th>
+                            <th>Nama</th>
+                            <th>No WA</th>
+                            <th>Nama Event</th>
+                            <th>Tanggal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($data as $key => $item)
+                            <tr>
+                                <td>{{ $key+1 }}</td>
+                                <td>{{ $item->seat->code }}</td>
+                                <td>{{ $item->name }}</td>
+                                <td>{{ $item->phone }}</td>
+                                <td>{{ $item->event->name }}</td>
+                                <td>{{ $item->created_at }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </form>
         </div>
     </div>
 @endsection
@@ -42,8 +54,34 @@
     <script src="{{ asset('admin-assets/js/datatables.pdfmake.min.js') }}"></script>
     <script src="{{ asset('admin-assets/js/datatables.vfs.min.js') }}"></script>
     <script src="{{ asset('admin-assets/js/datatables.print.min.js') }}"></script>
-
     <script>
+        $(function() {
+            $('#table').DataTable({
+                dom: 'B<"toolbar">frtip',
+                buttons: [
+                    'excel', 'pdf', 'print'
+                ]
+            });
+            $("div.toolbar").html(`<div class="col-md-4">
+                <select class="form-control" name="event_id">
+                    <option>Pilih Event</option>
+                    @foreach($events as $event)
+                        @if($event->id == request()->event_id)
+                            <option selected value="{{ $event->id }}">{{ $event->name }}</option>
+                        @else
+                            <option value="{{ $event->id }}">{{ $event->name }}</option>
+                        @endif
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-1">
+                <button class="form-control">Cari</button>
+            </div>
+            `);
+        })
+    </script>
+
+    {{-- <script>
         $(function() {
             const url = '{{ route('admin.event.booking.feed') }}';
 
@@ -55,7 +93,7 @@
                     "url": url,
                     "type": "get",
                 },
-                dom: 'Bfrt',
+                dom: 'Bfrtip',
                 buttons: [
                     'excel', 'pdf', 'print'
                 ],
@@ -76,5 +114,5 @@
 
             });
         });
-    </script>
+    </script> --}}
 @endpush

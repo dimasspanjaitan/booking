@@ -12,6 +12,7 @@
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
+        "nesbot/carbon": "^2.53",
         "yajra/laravel-datatables": "1.5",
         "yajra/laravel-datatables-oracle": "^9.18"
     },
