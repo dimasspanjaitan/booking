@@ -98,8 +98,12 @@ class EventController extends Controller
 
     public function download(Request $request){
         $url = BS::where('id', $request->id)->first();
-        
         $filepath = public_path($url->code);
-        return Response::download($filepath);
+
+        if (file_exists($filepath)) {
+            return Response::download($filepath);
+        }else{
+            return redirect()->back()->with('error', 'MAAF! Kode Booking untuk bangku yang anda pesan belum tersedia, tetapi bangku sudah BERHASIL dibooking. Silahkan hubungi Customer Service kami untuk info lebih lanjut!');
+        }
     }
 }

@@ -6,6 +6,13 @@
     <div class="mainheading">
         <h1 class="sitetitle">{{ $event->name }}</h1>
         <p class="lead">{{ $event->description }}</p>
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">PERINGATAN!</h4>
+            <p>Proses BOOKING akan <strong>ditutup</strong> pada hari Kamis, <strong>9 Desember 2021</strong> pukul <strong>18.00 WIB</strong>.</p>
+            <p>Booking akan di <strong>CANCEL</strong> jika anda tidak tiba di gereja <strong>5 menit</strong> sebelum ibadah. </p>
+            <hr>
+            <p class="mb-0">Ibadah akan <strong>dilaksanakan</strong> pada Hari JUMAT, <strong>10 Desember 2021</strong> pukul <strong>19.00 WIB</strong>.</p>
+          </div>
     </div>
     @foreach ($seat_grouped as $key => $sg)
         <div class="main-hall">

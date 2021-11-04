@@ -14,4 +14,7 @@
     <div class="mainheading" style="text-align: center">
         <a href="{{ route('event.detail.download', $booking->id) }}" class="seat seat1"><strong>DOWNLOAD</strong></a>
     </div>
+    <div class="mainheading" style="text-align: center">
+        <a href="{{ route('event.detail', $booking->event->slug) }}">Kembali ke halaman BOOKING</a>
+    </div>
 @endsection
