@@ -23,7 +23,7 @@
                         <a class="nav-link" href="{{ route('event') }}">Event</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="{{ url('tentang') }}">Tentang</a>
+                    <a class="nav-link" href="{{ route('about') }}">Tentang</a>
                     </li>
                 </ul>
                 <!-- End Menu -->

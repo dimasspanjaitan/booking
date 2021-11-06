@@ -13,7 +13,7 @@
 					<div>Intimacy with God, i Care, Discipleship</div>
 					<hr>
 					<div class="h6 mt-4">
-						email@gbipelita.com
+						gbipelita01@gmail.com
 					</div>
 					<div>Jl. Pelita 4 Medan No. 59/81</div>
 				</div>

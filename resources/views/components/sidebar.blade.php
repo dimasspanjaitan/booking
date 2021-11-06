@@ -1,7 +1,7 @@
 <!-- Begin Fixed Left Share -->
 <div class="col-md-2 col-xs-12">
     <div class="share">
-            <div class="fb-share-button" data-href="{{config('app.url')}}/renungan/{{ $renungan_latests->slug }}" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8000%2Frenungan%2Fslug&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Bagikan</a></div>
+            {{-- <div class="fb-share-button" data-href="{{config('app.url')}}/renungan/{{ $renungan_latests->slug }}" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8000%2Frenungan%2Fslug&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Bagikan</a></div> --}}
        
         {{-- <ul>
             <li>

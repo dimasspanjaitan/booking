@@ -103,7 +103,7 @@ class EventController extends Controller
         if (file_exists($filepath)) {
             return Response::download($filepath);
         }else{
-            return redirect()->back()->with('error', 'MAAF! Kode Booking untuk bangku yang anda pesan belum tersedia, tetapi bangku sudah BERHASIL dibooking. Silahkan hubungi Customer Service kami untuk info lebih lanjut!');
+            return redirect()->back()->with('error', 'MAAF! Kode Booking untuk bangku yang anda pesan belum tersedia.');
         }
     }
 }
