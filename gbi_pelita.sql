@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 05, 2021 at 07:37 AM
+-- Generation Time: Nov 08, 2021 at 12:08 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -69,27 +69,16 @@ CREATE TABLE IF NOT EXISTS `booking_seats` (
   UNIQUE KEY `booking_seats_code_unique` (`code`),
   KEY `booking_seats_event_id_index` (`event_id`),
   KEY `booking_seats_seat_id_index` (`seat_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `booking_seats`
 --
 
 INSERT INTO `booking_seats` (`id`, `code`, `event_id`, `seat_id`, `name`, `phone`, `created_at`, `updated_at`) VALUES
-(67, '/assets/img/booking-code/A046.jpg', 1, 46, 'tetset', '082286691994', '2021-11-04 02:45:12', '2021-11-04 02:45:12'),
-(66, '/assets/img/booking-code/A052.jpg', 1, 52, 'tetst', '082286691994', '2021-11-04 02:15:53', '2021-11-04 02:15:53'),
-(65, '/assets/img/booking-code/C163.jpg', 1, 163, 'htrhe', '082286691994', '2021-11-01 05:45:13', '2021-11-01 05:45:13'),
-(64, '/assets/img/booking-code/C173.jpg', 1, 173, 'eyq345', '082286691994', '2021-11-01 05:44:51', '2021-11-01 05:44:51'),
-(63, '/assets/img/booking-code/C176.jpg', 1, 176, 'ghkasd', '080812122323', '2021-11-01 05:44:42', '2021-11-01 05:44:42'),
-(62, '/assets/img/booking-code/C154.jpg', 1, 154, 'j6trtj', '082286691994', '2021-11-01 05:44:31', '2021-11-01 05:44:31'),
-(61, '/assets/img/booking-code/B141.jpg', 1, 141, 'k67ek', '082286691994', '2021-11-01 05:44:19', '2021-11-01 05:44:19'),
-(60, '/assets/img/booking-code/B134.jpg', 1, 134, 'atjtjertj', '082286691994', '2021-11-01 05:44:11', '2021-11-01 05:44:11'),
-(59, '/assets/img/booking-code/B107.jpg', 1, 107, 'adfhad', '082286691994', '2021-11-01 05:44:01', '2021-11-01 05:44:01'),
-(58, '/assets/img/booking-code/A043.jpg', 1, 43, 'Jack', '082286691994', '2021-11-01 05:43:52', '2021-11-01 05:43:52'),
-(57, '/assets/img/booking-code/A064.jpg', 1, 64, 'ghkasd', '01927845125', '2021-11-01 05:43:42', '2021-11-01 05:43:42'),
-(56, '/assets/img/booking-code/A069.jpg', 1, 69, 'asdgad', '080812122323', '2021-11-01 05:43:24', '2021-11-01 05:43:24'),
-(55, '/assets/img/booking-code/A019.jpg', 1, 19, 'Dimas', '082286691994', '2021-11-01 05:43:09', '2021-11-01 05:43:09'),
-(54, '/assets/img/booking-code/A001.jpg', 1, 1, 'Dimas', '082286691994', '2021-10-30 06:40:09', '2021-10-30 06:40:09');
+(70, '/assets/img/booking-code/A003.jpg', 1, 3, 'asdgad', '082286691994', '2021-11-06 06:09:30', '2021-11-06 06:09:30'),
+(69, '/assets/img/booking-code/A001.jpg', 1, 1, 'Dimas', '082286691994', '2021-11-06 04:47:02', '2021-11-06 04:47:02'),
+(68, '/assets/img/booking-code/A096.jpg', 1, 96, 'asdgad', '082286691994', '2021-11-06 04:28:49', '2021-11-06 04:28:49');
 
 -- --------------------------------------------------------
 
@@ -105,19 +94,19 @@ CREATE TABLE IF NOT EXISTS `events` (
   `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` text COLLATE utf8mb4_unicode_ci,
   `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `events_slug_unique` (`slug`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`id`, `name`, `event_date`, `image`, `description`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'Perayaan Natal LICC Youth GBI Pelita', '2021-10-25 19:14:23', NULL, 'Booking tempat duduk anda segera, karena jumlah kursi yang kami sediakan terbatas di masa Pandemi Covid-19 ini.', 'licc', '2021-10-25 12:09:25', NULL),
-(2, 'Starkids', '2021-10-27 19:23:28', NULL, 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.', 'startkids', '2021-10-25 12:19:28', NULL);
+INSERT INTO `events` (`id`, `name`, `event_date`, `image`, `description`, `slug`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Natal LICC Youth 2021', '2021-12-10 19:00:00', NULL, 'Booking tempat duduk anda segera, karena jumlah kursi yang kami sediakan terbatas di masa Pandemi Covid-19 ini.', 'licc', 0, '2021-10-25 12:09:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -154,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   `icon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT 'fa fa-list',
   PRIMARY KEY (`id`),
   KEY `menus_parent_id_index` (`parent_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `menus`
@@ -170,7 +159,8 @@ INSERT INTO `menus` (`id`, `parent_id`, `name`, `label`, `url`, `icon`) VALUES
 (23, 2, 'admin', 'Admin', '/admin/list', 'fa fa-key'),
 (24, 2, 'seat', 'Kursi', '/seat/list', 'fa fa-list'),
 (31, 3, 'renungan_list', 'List', '/renungan/list', 'fa fa-list'),
-(41, 4, 'booking_seat', 'Booking Kursi', '/event/booking', 'fa fa-bookmark');
+(41, 4, 'list', 'List Event', '/event/list', 'fa fa-list'),
+(42, 4, 'booking_seat', 'Booking Kursi', '/event/booking', 'fa fa-bookmark');
 
 -- --------------------------------------------------------
 
@@ -568,7 +558,7 @@ CREATE TABLE IF NOT EXISTS `seat_grups` (
 
 INSERT INTO `seat_grups` (`id`, `name`) VALUES
 (1, 'Gedung Utama'),
-(2, 'Lantai 2'),
+(2, 'Balkon'),
 (3, 'Teras Gereja');
 
 -- --------------------------------------------------------

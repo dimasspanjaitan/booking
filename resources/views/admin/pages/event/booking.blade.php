@@ -12,11 +12,11 @@
     <!-- end: TITLE -->
     <div class="container-fluid">
         <div class="table-responsive padding-top-10">
-            <form action="{{ route('admin.event.booking') }}" method="GET">
+            <form action="{{ route('admin.event.booking') }}" method="GET">       
                 <table id="table" width="100%" class="table table-hover display nowrap table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>No</th>
+                            <th width="10px">No</th>
                             <th>Kode Bangku</th>
                             <th>Nama</th>
                             <th>No WA</th>
@@ -58,11 +58,12 @@
         $(function() {
             $('#table').DataTable({
                 dom: 'B<"toolbar">frtip',
-                buttons: [
-                    'excel', 'pdf', 'print'
-                ]
+                // buttons: [
+                //     'excel', 'pdf', 'print'
+                // ]
             });
-            $("div.toolbar").html(`<div class="col-md-4">
+            $("div.toolbar").html(`
+            <div class="col-md-4">
                 <select class="form-control" name="event_id">
                     <option>Pilih Event</option>
                     @foreach($events as $event)

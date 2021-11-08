@@ -32,18 +32,18 @@
 					<thead>
 						<th width="10px">No.</th>
 						<th>Kode</th>
-						<th>Grup</th>
-                        <th>Status</th>
+						{{-- <th>Grup</th> --}}
+                        {{-- <th>Status</th> --}}
 						<th width="10px">Action</th>
 					</thead>
 					<tbody>
-						@foreach($seats as $key => $seat)
+						@foreach($seat_grouped as $key => $seat)
 							<tr>
-								<td>{{ $key+1 }}</td>
-								<td>{{ $role->name }}</a></td>
-								<td>{{ $role->is_admin?'Admin':'Bukan Admin' }}</td>
+								<td>{{ $key }}</td>
+								<td>{{ $seat->code }}</a></td>
+								{{-- <td>{{ $seat->->name }}</td> --}}
 								<td class="center">
-									<button type="submit" class="btn btn-transparent btn-sm btn_delete" data-id="{{$role->id}}">
+									<button type="submit" class="btn btn-transparent btn-sm btn_delete" data-id="{{ $seat->id }}">
 										<i class="fa fa-trash"></i>
 									</button>
 								</td>
@@ -64,45 +64,45 @@
 	<script src="{{ asset('vendor/DataTables/jquery.dataTables.min.js') }}"></script>
 
 	<script type="text/javascript">
-		$(function () {
-		    $(document).ready(function() { $('#role_table').DataTable(); } );
-		    $('.btn_delete').click(function(){
-		    	var id = $(this).data('id');
-		    	var data = {
-	                "id": id,
-	                '_token': '{{ csrf_token() }}'
-	            };
-		    	swal({
-				  title: "Anda yakin menghapus?.",
-				  text: "Aksi tidak dapat di batalkan.",
-				  icon: "warning",
-				  buttons: true,
-				  dangerMode: true,
-				})
-				.then((willDelete) => {
-				  if (willDelete) {
-		             $.ajax({
-		                type: 'POST',
-		                url: '{{route('api.admin.role.delete')}}',
-		                data: data,
-		                dataType: 'JSON',
-		                success: function(response) {
-		                	console.log(response);
-		                    if(response.status == 'success'){
-		                   		swal("Data Berhasil Dihapus ", {
-							      icon: "success",
-							    });
-							    location.reload();
-		                    }
-		                },
-		                error: function (jqXHR, status) {
+	// 	$(function () {
+	// 	    $(document).ready(function() { $('#role_table').DataTable(); } );
+	// 	    $('.btn_delete').click(function(){
+	// 	    	var id = $(this).data('id');
+	// 	    	var data = {
+	//                 "id": id,
+	//                 '_token': '{{ csrf_token() }}'
+	//             };
+	// 	    	swal({
+	// 			  title: "Anda yakin menghapus?.",
+	// 			  text: "Aksi tidak dapat di batalkan.",
+	// 			  icon: "warning",
+	// 			  buttons: true,
+	// 			  dangerMode: true,
+	// 			})
+	// 			.then((willDelete) => {
+	// 			  if (willDelete) {
+	// 	             $.ajax({
+	// 	                type: 'POST',
+	// 	                url: '{{route('api.admin.role.delete')}}',
+	// 	                data: data,
+	// 	                dataType: 'JSON',
+	// 	                success: function(response) {
+	// 	                	console.log(response);
+	// 	                    if(response.status == 'success'){
+	// 	                   		swal("Data Berhasil Dihapus ", {
+	// 						      icon: "success",
+	// 						    });
+	// 						    location.reload();
+	// 	                    }
+	// 	                },
+	// 	                error: function (jqXHR, status) {
 		                    
-		                }
-		            });
+	// 	                }
+	// 	            });
 				   
-				  }
-				});
-		    });
-		 });
-	</script>
+	// 			  }
+	// 			});
+	// 	    });
+	// 	 });
+	// </script>
 @endpush

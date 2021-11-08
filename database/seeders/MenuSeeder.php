@@ -92,6 +92,14 @@ class MenuSeeder extends Seeder
             [
                 'id' => 41,
                 'parent_id' => 4,
+                'name' => 'list',
+                'label' => 'List Event',
+                'url' => '/event/list',
+                'icon' => 'fa fa-list'
+            ],
+            [
+                'id' => 42,
+                'parent_id' => 4,
                 'name' => 'booking_seat',
                 'label' => 'Booking Kursi',
                 'url' => '/event/booking',

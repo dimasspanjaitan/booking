@@ -58,6 +58,10 @@ Route::group([
     'middleware' => 'adminauth'
     ], function (Router $router){
         $controller = "EventController@";
+        $router->get('event/list',$controller.'list')->name('list');
+        // $router->get('event/form',$controller.'form')->name('form');
+        $router->get('event/edit/{id}',$controller.'edit')->name('edit');
+        $router->get('event/edit/save',$controller.'save')->name('save');
         $router->get('event/booking',$controller.'booking')->name('booking');
         $router->get('event/booking/feed',$controller.'feed')->name('booking.feed');
     }

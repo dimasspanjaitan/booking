@@ -16,6 +16,30 @@ class EventController extends BaseController
     {
         parent::__construct();
     }
+
+    public function list(){
+        $events = Event::all();
+        // dd($events);
+        $events->map(function($e){
+            if(empty($e->event_date)){
+                $e->event_date = Carbon::createFromFormat('Y-m-d H:i:s', $e->event_date)->format('d-m-Y');
+            }
+        });
+
+        return view('admin.pages.event.list', compact('events'));
+    }
+
+    public function edit(Request $request, $id){
+        $event = Event::findOrFail($id);
+        if (empty($event)) return redirect()->back();
+        // dd($event);
+
+        return view('admin.pages.event.form', compact('event'));
+    }
+
+    public function save(Request $request){
+        
+    }
     
     public function booking(Request $request){
         $data = [];

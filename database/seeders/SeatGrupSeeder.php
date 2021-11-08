@@ -18,7 +18,7 @@ class SeatGrupSeeder extends Seeder
 
         SeatGrup::insert([
             ['name' => 'Gedung Utama'],
-            ['name' => 'Lantai 2'],
+            ['name' => 'Balkon'],
             ['name' => 'Teras Gereja']
         ]);
     }

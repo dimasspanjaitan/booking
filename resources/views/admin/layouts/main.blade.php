@@ -33,6 +33,7 @@
 		<link rel="stylesheet" href="{{asset('admin-assets/css/plugins.css')}}">
 		<link rel="stylesheet" href="{{asset('admin-assets/css/themes/theme-1.css')}}" id="skin_color" />
 		<link href="{{asset('vendor/DataTables/css/DT_bootstrap.css')}}" rel="stylesheet" media="screen">
+		<link rel="stylesheet" href="{{ asset('admin-assets/css/datatables.button.min.css') }}">
 		<!-- end: CUSTOM CSS -->
 		<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
 		@stack('css')
@@ -68,6 +69,13 @@
 		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<!-- start: CUSTOM JAVASCRIPTS -->
 		<script src="{{asset('admin-assets/js/main.js')}}"></script>
+		<script src="{{asset('admin-assets/js/datatables.min.js')}}"></script>
+		<script src="{{ asset('admin-assets/js/datatables.button.min.js') }}"></script>
+		<script src="{{ asset('admin-assets/js/datatables.html5.min.js') }}"></script>
+		<script src="{{ asset('admin-assets/js/datatables.jszip.min.js') }}"></script>
+		<script src="{{ asset('admin-assets/js/datatables.pdfmake.min.js') }}"></script>
+		<script src="{{ asset('admin-assets/js/datatables.vfs.min.js') }}"></script>
+		<script src="{{ asset('admin-assets/js/datatables.print.min.js') }}"></script>
 		<!-- start: JavaScript Event Handlers for this page -->
 		<script src="{{asset('admin-assets/js/index.js')}}"></script>
 		<script>
