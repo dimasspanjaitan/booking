@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use \App\Http\Requests\EventRequest;
 use App\Models\{
     Event,
@@ -91,7 +92,6 @@ class EventController extends Controller
             return redirect()->back();
         }
         $booking = BS::where('seat_id', $request->seat_id)->first();
-        // dd($booking->id);
 
         return view('pages.event.open-image', compact('booking'));
     }

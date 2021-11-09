@@ -7,6 +7,7 @@
     <div class="text-center">
         <div class="mainheading">
             <h2 class="sitetitle">KODE BOOKING</h2>
+            <p>Anda memesan kursi No. {{ substr($booking->seat->code, 1) }}</p>
             <p class="lead" style="color: #339900">Download KODE BOOKING sebagai bukti pemesanan bangku saat masuk ke gereja.</p>
         </div>
         <div class="card-download">

@@ -47,7 +47,7 @@ class SeatSeeder extends Seeder
                         'seat_grup_id' => $type['group_id'],
                         'row' => $row,
                         'column' => $col,
-                        'image' => '/assets/img/map/'.$code.'.jpg',
+                        'image' => '/assets/img/map/'.$type['group_id'].'.jpg',
                         'status' => 1
                     ]);
                 }
