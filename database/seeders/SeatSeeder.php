@@ -19,7 +19,7 @@ class SeatSeeder extends Seeder
 
         $seats = [
             'A' => [
-                'rows' => 10,
+                'rows' => 11,
                 'columns' => 10,
                 'group_id' => 1
             ],
@@ -30,7 +30,7 @@ class SeatSeeder extends Seeder
             ],
             'C' => [
                 'rows' => 4,
-                'columns' => 10,
+                'columns' => 20,
                 'group_id' => 3
             ]
         ];
