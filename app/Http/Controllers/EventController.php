@@ -68,9 +68,18 @@ class EventController extends Controller
         $data = $request->all();
         $event = Event::where('slug', $data['slug'])->first();
         $seat = Seat::where('id', $data['seat_id'])->first();
+        $b_seats = BS::all();
+
+        // dd($b_seat);
 
         if (empty($event)) {
             return redirect()->back()->with('error', 'Maaf, EVENT tidak tersedia!');
+        }
+
+        foreach ($b_seats as $key => $b_seat) {
+            if($data['seat_id'] == $b_seat->seat_id){
+                return redirect()->back()->with('error', 'Maaf, Kursi sudah dipesan. Mohon pesan kursi yang lain!');
+            }
         }
 
         $booking = new BS();
