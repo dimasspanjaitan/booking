@@ -9,9 +9,9 @@
         <p class="lead">{{ $event->description }}</p>
         <div class="alert alert-success" role="alert">
             <h4 class="alert-heading">PERINGATAN!</h4>
-            <p>Maaf, sistem Booking untuk Event ini belum dibuka!</p>
-            <hr>
-            <p class="mb-0">Event akan dibuka pada Hari Kamis, <strong>11 November 2021</strong> pukul <strong>18.00 WIB</strong>.</p>
+            <p>Event sudah BERAKHIR!</p>
+            {{-- <hr>
+            <p class="mb-0">Event akan dibuka pada Hari Kamis, <strong>11 November 2021</strong> pukul <strong>18.00 WIB</strong>.</p> --}}
         </div>
     </div>
     @else
