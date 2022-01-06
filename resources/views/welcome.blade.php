@@ -7,7 +7,7 @@
 @section('content')
     <div class="mainheading">
         <h1 class="sitetitle">GBI Pelita Medan</h1>
-        <p class="lead">Bertumbuh dalam Pemuridan</p>
+        <p class="lead">Tahun Kesehatan Rohani</p>
     </div>
 	<div class="box-slide">
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
