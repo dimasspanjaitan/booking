@@ -103,3 +103,19 @@
 .box-slide {
     padding-bottom: 20px;
 }
+
+.card-icare {
+    padding: 20px;
+}
+
+.author-icare {
+	width:72px;
+	height:72px;
+	float:left;
+	border-radius:100%;
+    float:none;
+}
+
+.author-icare-meta {
+    text-align: right   ;
+}

@@ -26,6 +26,7 @@ Route::get('event/detail/open-image/{seat_id}', 'App\Http\Controllers\EventContr
 Route::get('event/detail/download/{id}', 'App\Http\Controllers\EventController@download')->name('event.detail.download');
 Route::post('event/detail/save', 'App\Http\Controllers\EventController@detail_save')->name('event.detail.save');
 
+Route::get('icare', 'App\Http\Controllers\IcareController@index')->name('icare');
 Route::get('about', 'App\Http\Controllers\AboutController@index')->name('about');
 
 
