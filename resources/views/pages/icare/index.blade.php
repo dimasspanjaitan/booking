@@ -14,14 +14,15 @@
             <div class="mainheading">
                 <div class="row post-top-meta authorpage">
                     <div class="col-md-8 col-xs-12">
-                        <h1>Icare</h1>
-                        <span class="author-description">Description</span>
+                        <h1>I Care</h1>
+                        <span class="author-description">Komunitas kecil sebagai sebuah keluarga Rohani, dimana kita bisa saling memperhatikan, saling mendukung, saling mendoakan dan tempat kita tumbuh bersama dalam Tuhan</span>
+                        <span>Untuk info lebih lanjut tentang I Care, bisa hubungi Koordinator I Care via Whatsapp.</span>
                     </div>
                     <div class="col-md-4 col-xs-12" align="center">
                         <img class="author-icare"
-                            src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&amp;d=mm&amp;r=x"
+                            src="{{ asset('assets/img/icare/jayanta-bangun.jpeg') }}"
                             alt="Gembala"><br>
-                            <span class="post-name"><strong>Gembala</strong></span><br>
+                            <span class="post-name"><strong>Koordinator I Care</strong></span><br>
                             <span class="post-date">Jayanta Bangun</span><br>
                             <span class="post-date">
                                 <a href="https://api.whatsapp.com/send?phone=6281375722746"
@@ -46,17 +47,17 @@
             @foreach ($icares as $item)
             <div class="authorpostbox">
                 <div class="card">
-                    <img class="img-fluid img-thumb" src="assets/img/event-default.jpg" alt="">
+                    <img class="img-fluid img-thumb" src="{{ $item->image }}" alt="">
                     <div class="card-icare">
                         <h2 class="card-title">{{ $item->name }}</h2>
                         <h4 class="card-text">{{ $item->description }}</h4>
                         <div class="metafooter">
                             <div class="wrapfooter">
                                 <span class="meta-footer-thumb">
-                                    <img class="author-thumb" src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&amp;d=mm&amp;r=x" alt="Gembala Icare">
+                                    <img class="author-thumb" src="{{ $item->pp_mentor }}" alt="Gembala Icare">
                                 </span>
                                 <span class="author-meta">
-                                    <span class="post-name"><strong>Gembala Icare</strong></span><br />
+                                    <span class="post-name"><strong>Gembala I Care</strong></span><br />
                                     <span class="post-date">{{ $item->mentor }}</span><br>
                                     <span class="post-date">
                                         <a href="https://api.whatsapp.com/send?phone=62<?php echo substr($item->phone, 1) ?>"

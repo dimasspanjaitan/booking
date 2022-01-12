@@ -11,7 +11,12 @@ class IcareController extends Controller
     public function index()
     {
         $icares = Icare::all();
-        // dd($icares);
+
+        $icares->map(function($i){
+            if(empty($i->image)){
+                $i->image = 'assets/img/event-default.jpg';
+            }
+        });
 
         return view('pages.icare.index', compact('icares'));
     }

@@ -19,6 +19,7 @@ class CreateIcaresTable extends Migration
             $table->string('image')->nullable();
             $table->string('mentor');
             $table->string('phone');
+            $table->string('pp_mentor');
             $table->text('description');
             $table->timestamps();
         });

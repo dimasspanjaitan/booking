@@ -22,7 +22,7 @@
                         <a class="nav-link" href="{{ route('renungan') }}">Renungan</a>
                     </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('icare') }}">Icare</a>
+                    <a class="nav-link" href="{{ route('icare') }}">I Care</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('event') }}">Event</a>
